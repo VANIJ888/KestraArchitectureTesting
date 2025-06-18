@@ -15,7 +15,16 @@ RUN crontab /etc/cron.d/my_cron_job
 # Add an entrypoint script
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
-RUN pip install -r requirements.txt
+
+
+# Copy requirements and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of your app
+COPY . .
+
+# RUN pip install -r requirements.txt
 ENTRYPOINT ["/docker-entrypoint.sh"]
 # RUN apt-get update && apt-get install -y \
 #     build-essential \

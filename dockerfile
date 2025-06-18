@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y cron
 # Copy your cron job file (e.g., crontab) into the container
 COPY crontab /etc/cron.d/my_cron_job
 RUN chmod 0644 /etc/cron.d/my_cron_job
+RUN echo "" >> /etc/cron.d/my_cron_job
 RUN crontab /etc/cron.d/my_cron_job
 
 # Add an entrypoint script

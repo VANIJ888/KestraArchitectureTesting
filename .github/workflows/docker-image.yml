@@ -2,9 +2,9 @@ name: Docker Image CI for kestra trigger
 
 on:
   push:
-    branches: [ "feature/kestraConnectionTesting" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "feature/kestraConnectionTesting" ]
+    branches: [ "main" ]
 
 jobs:
 
